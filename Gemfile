@@ -42,7 +42,7 @@ gem 'foundation-rails'
 
 gem 'json', '~> 1.7.7'
 
-group :development, :test do
+group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -51,4 +51,8 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :development, :test do
+  # empty for now, but gems needed for testing AND at the CLI belong to here
 end
