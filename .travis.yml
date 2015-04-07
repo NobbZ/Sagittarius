@@ -26,7 +26,8 @@ before_install:
   - rm config/database.yml
   - cp config/database.travis.$DATABASE.yml config/database.yml
 before_script:
-  - echo -e "test:\n  secret_key_base: `bundle exec rake secret`" | tee config/secrets.yml
+  - >
+    echo -e "test:\n  secret_key_base: `bundle exec rake secret`" | tee config/secrets.yml
   - bundle exec rake db:migrate
 notifications:
   email: false
@@ -35,4 +36,3 @@ matrix:
     - rvm: 2.1.0
     - rvm: 2.2.0
   fast_finish: true
-  
