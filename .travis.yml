@@ -25,6 +25,7 @@ before_install:
     fi
   - rm config/database.yml
   - cp config/database.travis.$DATABASE.yml config/database.yml
+  - cat config/database.yml
 before_script:
   - >
     echo -e "test:\n  secret_key_base: `bundle exec rake secret`" | tee config/secrets.yml
