@@ -40,6 +40,8 @@ gem 'travis', '~> 1.7.5'
 # gem 'capistrano-rails', group: :development
 gem 'foundation-rails'
 
+gem 'json', '~> 1.7.7'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
