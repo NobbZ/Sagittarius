@@ -1,23 +1,4 @@
 language: ruby
 
-rvm:
-  - 2.0
-  - 2.1
-  - 2.2
-  - ruby-head
-  
-  - rbx
-
-gemfile:
-  - gemfiles/rails_4_0.gemfile
-  - gemfiles/rails_4_1.gemfile
-  - gemfiles/rails_4_2.gemfile
-
-matrix:
-  allow_failures:
-    - rvm: rbx
-    - rvm: ruby-head
-  fast_finish: true
-
 notifications:
   email: false
