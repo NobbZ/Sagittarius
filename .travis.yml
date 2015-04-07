@@ -35,3 +35,4 @@ matrix:
     - rvm: 2.1.0
     - rvm: 2.2.0
   fast_finish: true
+  
