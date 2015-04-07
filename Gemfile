@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', group: :development if ENV["CI"].nil?
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -54,7 +52,14 @@ group :development, :test do
 end
 
 unless ENV["CI"].nil? then
-  gem 'sqlite3' if ENV["DATABASE"] == "sqlite"
-  gem 'mysql2'  if ENV["DATABASE"] == "mysql"
-  gem 'pg'      if ENV["DATABASE"] == "postgres"
+  case ENV["DATABASE"]
+  when "sqlite"   then gem 'sqlite3'
+  when "mysql"    then gem 'mysql2'
+  when "postgres" then gem 'pg'
+  else
+    raise RuntimeError.new "It is unclear to me, which gem I should use for the '#{ENV["DATABASE"]}'-database!"
+  end
+else
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', group: :development, :test
 end
