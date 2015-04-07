@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 #sticking to RUBY 2.0.0 Version
 ruby '2.0.0'
