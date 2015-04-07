@@ -36,6 +36,9 @@ gem 'travis', '~> 1.7.5'
 # gem 'capistrano-rails', group: :development
 gem 'foundation-rails'
 
+# User management
+gem 'devise', '~> 3.4.1'
+
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
