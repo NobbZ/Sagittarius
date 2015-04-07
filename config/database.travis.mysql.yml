@@ -1,0 +1,6 @@
+test:
+  adapter: mysql2
+  database: sagittarius_test
+  username: travis
+  timeout: 500
+

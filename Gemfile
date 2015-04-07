@@ -1,11 +1,9 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-#sticking to RUBY 2.0.0 Version
-# ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', group: :development
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,8 +38,6 @@ gem 'travis', '~> 1.7.5'
 # gem 'capistrano-rails', group: :development
 gem 'foundation-rails'
 
-# gem 'json', '~> 1.7.7'
-
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -55,4 +51,10 @@ end
 
 group :development, :test do
   # empty for now, but gems needed for testing AND at the CLI belong to here
+end
+
+unless ENV["CI"].nil? then
+  gem 'sqlite3' if ENV["DATABASE"] == "sqlite"
+  gem 'mysql2'  if ENV["DATABASE"] == "mysql"
+  gem 'pg'      if ENV["DATABASE"] == "postgres"
 end

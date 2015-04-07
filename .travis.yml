@@ -4,9 +4,31 @@ rvm:
   - 2.0.0
   - 2.1.0
   - 2.2.0
-bundler_args: --without production doc development
-# before_install:
-#   - gem update --system 2.0.0 
-#   - gem --version
+env:
+  global:
+    - CI=true
+  matrix:
+    - DATABASE=sqlite
+    - DATABASE=mysql
+    - DATABASE=postgres
+addons:
+  postgresql: 9.3 # or perhaps 9.2 or 9.1? We have to decide on one of these
+bundler_args: --without production doc development --jobs=3 --retry=3
+before_install:
+  - >
+    if [[ $DATABASE == "mysql" ]]; then
+      mysql -e "create database IF NOT EXISTS sagittarius_test;" -uroot
+    fi
+  - >
+    if [[ $DATABASE == "postgres" ]]; then
+      psql -c 'create database sagittarius_test;' -U postgres
+    fi
+  - rm config/database.yml
+  - cp config/database.travis.$DATABASE.yml config/database.yml
 notifications:
   email: false
+matrix:
+  allow_failures:
+    - rvm: 2.1.0
+    - rvm: 2.2.0
+  fast_finish: true

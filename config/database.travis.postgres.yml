@@ -1,0 +1,6 @@
+test:
+  adapter: postgresql
+  database: sagittarius_test
+  username: postgres
+  timeout: 500
+
