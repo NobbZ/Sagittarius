@@ -24,8 +24,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #gem to start rails server for Windows 64 bit inorder to get rid of TZInfo::DataSourceNotFound error message.
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 
-#Gem for CI
+# Gem for CI
 gem 'travis', '~> 1.7.5'
+# Thin Server
+gem 'thin'
+# Devise Gem
+gem 'devise'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -39,10 +44,8 @@ gem 'foundation-rails'
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end

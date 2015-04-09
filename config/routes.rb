@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+    as :user do
+      get 'login'               => 'devise/sessions#new'
+      post 'login'              => 'devise/sessions#create'
+      get 'logout'              => 'devise/sessions#destroy'
+      get 'register'            => 'devise/registrations#new'
+      get 'registered'          => 'devise/registrations#show'
+      get 'passwordReset'       => 'devise/passwords#new'
+      get 'changePassword'      => 'devise/passwords#edit'  
+      get 'resendConfirmation'  => 'devise/confirmations#new'    
+    end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
