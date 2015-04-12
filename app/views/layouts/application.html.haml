@@ -29,7 +29,10 @@
             %li= link_to "Example 2", "#"
 
     .row
-      .large-3.columns Foobar
+      .large-3.columns
+        %ul.side-nav
+          %li= link_to "Example 1", "#"
+          %li= link_to "Example 2", "#"
       .large-9.columns
         - if flash[:notice]
           .alert-box.radius.success= flash[:notice]
