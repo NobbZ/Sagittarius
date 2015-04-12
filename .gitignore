@@ -176,3 +176,12 @@ tmtags
 ######################
 ##### MISC STUFF #####
 ######################
+
+#== Tools ===
+#============
+
+### RVM ###
+
+.rvmrc
+.ruby-version
+.version.conf
