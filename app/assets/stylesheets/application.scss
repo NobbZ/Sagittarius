@@ -13,4 +13,23 @@
  *= require_tree .
  *= require_self
  */
-@import "foundation_and_overrides"
+@import "foundation_and_overrides";
+
+div.form_row {
+  @extend .row;
+  @extend .collapse;
+}
+
+div.label_col {
+  @extend .large-3;
+  @extend .columns;
+
+  label {
+    @extend .prefix;
+
+    &.required {
+      background-color: LightCoral;
+    }
+  }
+}
+
